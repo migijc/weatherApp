@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+</head>
+<body>
+    <div id="header">
+        <div class="searchContainer">
+            <label for="location">Label Test</label>
+            <input type="search" name="location" id="location" placeholder="What's the weather in...">
+            <button>Search</button>
+        </div>
+    </div>
+
+    <div id="content">
+        <p class="feelsLike weatherData"></p>
+        <p class="pop weatherData"></p>
+        <p class="humidity weatherData"></p>
+        <p class="windSpeed weatherData"></p>
+        <p class="currentClimate weatherData"></p>
+        <p class="location weatherData"></p>
+        <p class="temperature weatherData"></p>
+
+    </div>
+
+    <div id="footer"></div>
+
+</body>
+</html>
