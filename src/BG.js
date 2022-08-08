@@ -10,7 +10,7 @@ export default function fetchNow(searchTerm){
         const data = await result.json();
         if(data.photos.length==0){
           console.log("empty photo array")
-          body.style.backgroundImage="url(/home/miguek/repos/weatherApp/src/noResults.jpg)"
+          body.style.backgroundImage="url(/home/miguek/repos/weatherApp/dist/noResults.jpg)"
         }else{
           let randomNum=Math.floor(Math.random()*data.photos.length-1)+1
           body.style.backgroundImage=`linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.3)), url(${data.photos[randomNum].src.original})`;
