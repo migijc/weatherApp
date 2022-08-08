@@ -1,4 +1,6 @@
 import Location from "./location"
+import displayLocationData from "./displayLocation"
+import fetchNow from "./BG"
 
 let essentialsForRequest={
     myApiKey: "c8c50550bd51b757bdea4a3ab439b988",
@@ -16,10 +18,6 @@ let lat
 let lon
 let currentLocation
 
-// let locationInput=document.querySelector("input")
-// let searchButton=document.querySelector("button")
-// searchButton.onclick=()=>{getLongAndLangURL(locationInput.value)}
-
  export default function getLocationData(location){
     let city=location
     let cityInfo=[]
@@ -30,10 +28,8 @@ let currentLocation
             return response.json()
         })
         .catch(function(rejection){
-            console.log(rejection)
         })
         .then(function(response){
-            console.log(response[0])
             a[1]= (lat=response[0].lat)
             a[3]= (lon=response[0].lon)
         })
@@ -43,8 +39,7 @@ let currentLocation
                  return response.json()
              })
              .then(function(response){
-                 console.log(response)
-                 console.log(response.current)
+                // console.log(response.daily)
                  cityInfo.push(response.current["feels_like"])
                  cityInfo.push(location)
                  cityInfo.push(response.current.humidity)
@@ -52,11 +47,18 @@ let currentLocation
                  cityInfo.push(response.current["wind_speed"])
                  cityInfo.push(response.current.weather[0].description)
                  cityInfo.push(response.current.temp)
+                 cityInfo.push(response.daily)
                  currentLocation=new Location(cityInfo)
-                 currentLocation.showOnConsole()
+                 displayLocationData(currentLocation)
+                 console.log(currentLocation)
+             })
+             .then(response=>{
+                fetchNow(currentLocation.location)
              })
         })
 }
+
+
 
 
 

@@ -1,0 +1,108 @@
+@import url(./main.css);
+@import url(../node_modules/@fortawesome/fontawesome-free/css/all.css);
+#weeklyWeather{
+    height: 8rem;
+    width: 100%;
+    margin-top: 22%;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    height: 30%;
+    gap:2rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+
+}
+
+.weatherDiv{
+    background-color:rgba(128, 128, 128, .7);
+    border-radius: 5px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* position: relative; */
+}
+
+#today{
+    border: 3px solid rgba(255, 251, 0, 0.6);
+}
+
+.weatherDiv > div > .pop{
+    position: relative;
+}
+.weatherDiv > div > .pop::before{
+    position: absolute;
+    left: -1rem;
+    top: 0;
+    color: white;
+    font-size: .8rem;
+    top:.3rem
+}
+
+.weatherDiv > div > .humidity{
+    position: relative;
+}
+.weatherDiv > div > .humidity::before{
+    position: absolute;
+    left: -1.1rem;
+    top: 0;
+    color: white;
+    font-size: .9rem;
+    top:.2rem
+}
+
+.weatherDiv > div > .windSpeed{
+    position: relative;
+}
+.weatherDiv > div > .windSpeed::before{
+    position: absolute;
+    left: -1.1rem;
+    top: 0;
+    color: white;
+    font-size: .9rem;
+    top:.2rem
+}
+
+.weatherDiv > div > .highOf{
+    position: relative;
+}
+.weatherDiv > div > .highOf::before{
+    position: absolute;
+    content:"\e040";
+    font-family: "Font awesome 6 free";
+    font-weight: 900;
+    left: -1.1rem;
+    top: 0;
+    color: white;
+    font-size: .9rem;
+    top:.2rem;
+}
+
+.weatherDiv > div > .lowOf{
+    position: relative;
+}
+.weatherDiv > div > .lowOf::before{
+    position: absolute;
+    content:"\e03f";
+    font-family: "Font awesome 6 free";
+    font-weight: 900;
+    left: -1.1rem;
+    top: 0;
+    color: white;
+    font-size: .9rem;
+    top:.2rem;
+}
+
+.weatherDiv > p{
+    font-size: 1.3rem;
+    margin-top: -2.5rem;
+    color: #00a9ff;
+    font-weight: 900;
+}
+
+.weatherDiv > div{
+    margin-top: 1.5rem;
+}
+
+
