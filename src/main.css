@@ -86,7 +86,20 @@ input#location{
     background-color: transparent;
     border-bottom: .17rem solid rgb(255, 255, 255);
     color: white;
-    
+    outline: none;
+}
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  -webkit-appearance:none;
+}
+
+input#location:focus-visible{
+    border: none;
+    outline:none;
+    border-bottom: .17rem solid rgb(255, 255, 255);
+
 }
 
 input#location::placeholder{
@@ -99,6 +112,7 @@ input#location::placeholder{
     margin-top:5rem;
     position:relative;
     display: flex;
+    position: relative;
 }
 
 
@@ -231,6 +245,7 @@ input[type="checkbox"] +label::before{
     height: 1rem;
     margin-right: .25em;
     transition: 200ms ease-in-out;
+    
 }
 
 input[type=checkbox]:checked+label::before{
@@ -271,10 +286,10 @@ input[type="checkbox"] + label{
     /* width: max-content; */
 }
 
-.toggleMessage{
-    /* position: absolute; */
-    /* top: 47.9%; */
-    /* left:5rem; */
+.errorMessage{
+    position: absolute;
+    top:3rem;
+    color: rgb(255, 42, 42);
 }
 
 .toggleContainer{

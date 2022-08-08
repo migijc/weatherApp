@@ -8,9 +8,14 @@ export default function fetchNow(searchTerm){
           }
         });
         const data = await result.json();
-        let randomNum=Math.floor(Math.random()*data.photos.length-1)+1
-        body.style.backgroundImage=`linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.3)), url(${data.photos[randomNum].src.original})`;
-
+        if(data.photos.length==0){
+          body.style.backgroundImage="url(../src/img/noResults.jpg)"
+        }else{
+          let randomNum=Math.floor(Math.random()*data.photos.length-1)+1
+          body.style.backgroundImage=`linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.3)), url(${data.photos[randomNum].src.original})`;
+        }
+        // let randomNum=Math.floor(Math.random()*data.photos.length-1)+1
+        // body.style.backgroundImage=`linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.3)), url(${data.photos[randomNum].src.original})`;
     }
     fetchImages(searchTerm)
 };

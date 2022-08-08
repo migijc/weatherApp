@@ -2,6 +2,20 @@ import Location from "./location"
 import displayLocationData from "./displayLocation"
 import fetchNow from "./BG"
 
+let displayErrorMessage=()=>{
+    const searchContainer=document.getElementById("searchContainer")
+    const searchInput=document.getElementById("location")
+    const errorMessage=document.createElement("p")
+    errorMessage.classList.add("errorMessage")
+    errorMessage.textContent= "*Your search didn't match any results. Try again."
+    searchContainer.appendChild(errorMessage)
+    searchInput.oninput=()=>{
+        if(searchInput.value.length==1){
+            searchContainer.removeChild(errorMessage)
+        }
+    }
+}
+
 let essentialsForRequest={
     myApiKey: "c8c50550bd51b757bdea4a3ab439b988",
     longAndLangURLArray:["http://api.openweathermap.org/geo/1.0/direct?q=","City","&limit=5&appid=c8c50550bd51b757bdea4a3ab439b988"],
@@ -25,13 +39,17 @@ let currentLocation
 
     fetch(essentialsForRequest.longAndLangURLArray[0]+ essentialsForRequest.longAndLangURLArray[1]+ essentialsForRequest.longAndLangURLArray[2], {mode:"cors"})
         .then(function(response){
+            //this response is the first think we recieve from promise
             return response.json()
-        })
-        .catch(function(rejection){
         })
         .then(function(response){
             a[1]= (lat=response[0].lat)
             a[3]= (lon=response[0].lon)
+        })
+        .catch(function(rejection){
+            a[1]=19.8968
+            a[3]=155.5828
+            throw new Error("err") 
         })
         .then(function(response){
             fetch(getCurrentURl(), {mode:"cors"})
@@ -39,7 +57,6 @@ let currentLocation
                  return response.json()
              })
              .then(function(response){
-                // console.log(response.daily)
                  cityInfo.push(response.current["feels_like"])
                  cityInfo.push(location)
                  cityInfo.push(response.current.humidity)
@@ -50,12 +67,16 @@ let currentLocation
                  cityInfo.push(response.daily)
                  currentLocation=new Location(cityInfo)
                  displayLocationData(currentLocation)
-                 console.log(currentLocation)
              })
              .then(response=>{
                 fetchNow(currentLocation.location)
              })
         })
+        .catch(function(response){
+            displayErrorMessage()
+        })
+        
+   
 }
 
 

@@ -6,7 +6,6 @@ degreeUnitToggle.addEventListener("click", ()=>{
         degreeUnitToggle.classList.remove("faranheit")
         degreeUnitToggle.classList.add("celsius")
         let numbersToConvert=document.querySelectorAll(".temperature, .feelsLike, .highOf, .lowOf")
-        console.log(degreeUnitToggle.classList)
         numbersToConvert.forEach(number =>{
             number.textContent=Math.trunc((parseInt(number.textContent)-32) * .5556) +"°"
         })
@@ -14,7 +13,6 @@ degreeUnitToggle.addEventListener("click", ()=>{
         degreeUnitToggle.classList.remove("celsius")
         degreeUnitToggle.classList.add("faranheit")
         let numbersToConvert=document.querySelectorAll(".temperature, .feelsLike, .highOf, .lowOf")
-        console.log(degreeUnitToggle.classList)
         numbersToConvert.forEach(number =>{
             number.textContent=Math.trunc((parseInt(number.textContent)* 1.8) + 32) +"°"
         })
@@ -31,7 +29,6 @@ export default function displayLocationData(obj) {
             this.index=div.dataset.index
             this.elementID=div.id
             this.header=document.querySelector("." + this.elementID + "Header").textContent=`${months[todaysMonth]}/${this.date}`
-            console.log("." + this.elementID + "Header")
             this.pop=document.querySelector("."+this.elementID+"Pop").textContent=Math.trunc(obj.weeklyWeather[this.index].pop *100)+"%"
             this.humidity=document.querySelector("."+this.elementID+"Humidity").textContent=obj.weeklyWeather[this.index].humidity +"%"
             this.highTemp=document.querySelector("."+this.elementID+"HighOf").textContent=Math.trunc(1.8*(obj.weeklyWeather[this.index].temp.max -273)+32)+"°"
@@ -51,7 +48,6 @@ export default function displayLocationData(obj) {
     let i=0
     dailyWeatherDivs.forEach(function(div){
         currentDayDiv= new ElementsInDiv(div, obj)
-        console.log(currentDayDiv.date)
         i++
     })
 

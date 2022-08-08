@@ -12,5 +12,5 @@ searchButton.onclick=()=>{
     getLocationData(locationInput.value)
     degreeUnitToggle.classList="faranheit"
     degreeUnitToggle.checked=false
+    locationInput.value=''
 }
-
