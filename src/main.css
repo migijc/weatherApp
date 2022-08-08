@@ -247,7 +247,7 @@ input[type="checkbox"] +label::after{
     content:"";
     left: .1em;
     width: .9em;
-    bottom:.09em;
+    bottom:.28em;
     height: .9em;
     background-color: rgb(14, 87, 182);
     border-radius: 1em;
@@ -256,7 +256,7 @@ input[type="checkbox"] +label::after{
 }
 input[type="checkbox"]:checked + label::after{
     content:"";
-    bottom:.09rem;
+    bottom:.28rem;
     transform: translate(100%);
     background-color: rgb(43, 180, 116);
 }
@@ -267,15 +267,25 @@ input[type="checkbox"] + label{
     position: relative;
     cursor: pointer;
     top: 35%;
-    left: 9%;
+    /* left: 9%; */
     /* width: max-content; */
 }
 
 .toggleMessage{
-    position: absolute;
-    top: 47.9%;
-    left:5rem;
+    /* position: absolute; */
+    /* top: 47.9%; */
+    /* left:5rem; */
 }
+
+.toggleContainer{
+    position: relative;
+    top: 40%;
+    display: flex;
+    gap:1rem;
+    margin-left: 4rem;
+}
+
+
 
 
 

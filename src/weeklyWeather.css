@@ -3,13 +3,14 @@
 #weeklyWeather{
     height: 8rem;
     width: 100%;
-    margin-top: 22%;
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     height: 30%;
     gap:2rem;
     padding-left: 4rem;
     padding-right: 4rem;
+    position: relative;
+    top: 26rem;
 
 }
 
